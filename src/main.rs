@@ -16,7 +16,9 @@ struct Flags {
     addr: String,
 
     /// service name to check
-    #[clap(long, default_value = "\"\"")]
+    // we provide the default value as a workaround for how clap displays strings without enclosing quotes
+    /// service name to check [default: ""]
+    #[clap(long, default_value = "", hide_default_value = true)]
     service: String,
 
     /// user-agent header value of health check requests
